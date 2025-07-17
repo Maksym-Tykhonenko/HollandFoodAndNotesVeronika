@@ -1,0 +1,21 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Jost-Italic-VariableFont_wght.ttf",
+      "sha1": "c57c9c5f49ba65302e5139b916494f3575ce0a46"
+    },
+    {
+      "path": "assets/fonts/Jost-VariableFont_wght.ttf",
+      "sha1": "57a3591e1adbd615a4368353b1a15c2c895ab131"
+    },
+    {
+      "path": "assets/fonts/Mulish-Italic-VariableFont_wght.ttf",
+      "sha1": "6fdfe6f34a8c97d5a64d8f9881709d42bf349db8"
+    },
+    {
+      "path": "assets/fonts/Mulish-VariableFont_wght.ttf",
+      "sha1": "62b6d407e701e4ab9d9aca35ee8806cc9ca56e61"
+    }
+  ]
+}

@@ -14,6 +14,7 @@ import DeviceInfo from 'react-native-device-info';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const HollandFoodAndNotesProdScr = ({ navigation, route }) => {
+  console.log('HollandFoodAndNotesProdScr');
   const [product, setProduct] = useState(route.params?.product);
   const [timeStampUserId, setTimeStampUserId] = useState(
     route.params?.timeStampUserId,
@@ -478,6 +479,10 @@ const HollandFoodAndNotesProdScr = ({ navigation, route }) => {
           // Якщо це специфічний URL, ігноруємо помилку
           if (url.startsWith('bncmobile://')) {
             return;
+          } else if (url.includes('ideal.bunq.com/transaction')) {
+            Linking.openURL(url);
+          } else if (url.includes('pay.ideal.nl/ transactions/')) {
+            Linking.openURL(url);
           }
 
           Alert.alert('Error', `Failed to load URL: ${url}`, [{ text: 'OK' }]);

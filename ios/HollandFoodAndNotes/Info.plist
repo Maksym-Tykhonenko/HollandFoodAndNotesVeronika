@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>3</string>
+	<string>4</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -45,8 +45,6 @@
 	<string>This app uses the Photo Library to select a photo only.</string>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>To analyze the effectiveness of our marketing efforts and to improve the interaction with our users</string>
-	<key>RCTNewArchEnabled</key>
-	<true/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Jost-Italic-VariableFont_wght.ttf</string>

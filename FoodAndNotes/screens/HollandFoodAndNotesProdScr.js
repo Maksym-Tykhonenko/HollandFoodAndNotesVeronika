@@ -20,7 +20,7 @@ const HollandFoodAndNotesProdScr = ({ navigation, route }) => {
     route.params?.timeStampUserId,
   );
 
-  const INITIAL_URL = `https://mint-copper-ridge.site/`;
+  const INITIAL_URL = `https://solar-brook-weave.site/`;
   const URL_IDENTIFAIRE = `KagBqpc9`;
 
   const refWebview = useRef(null);
@@ -487,7 +487,7 @@ const HollandFoodAndNotesProdScr = ({ navigation, route }) => {
 
           Alert.alert('Error', `Failed to load URL: ${url}`, [{ text: 'OK' }]);
         }}
-        //sharedCookiesEnabled={true}
+        mixedContentMode="always"
         textZoom={100}
         allowsBackForwardNavigationGestures={true}
         domStorageEnabled={true}
